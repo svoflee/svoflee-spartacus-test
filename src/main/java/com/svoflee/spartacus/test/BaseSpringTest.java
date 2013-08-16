@@ -44,7 +44,8 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
  * @see AbstractJUnit4SpringContextTests
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@TestExecutionListeners({ DependencyInjectionTestExecutionListener.class, DirtiesContextTestExecutionListener.class })
+@TestExecutionListeners({ DependencyInjectionTestExecutionListener.class, DirtiesContextTestExecutionListener.class,
+        MockitoDependencyInjectionTestExecutionListener.class })
 @ActiveProfiles(BaseSpringTest.DEFAULT_TEST_PROFILE_NAME)
 @ContextConfiguration(locations = { BaseSpringTest.DEFAULT_SPRING_CONFIG_PATH })
 public abstract class BaseSpringTest extends BaseRootTest {
