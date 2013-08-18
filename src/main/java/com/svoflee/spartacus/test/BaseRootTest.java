@@ -20,8 +20,6 @@
 
 package com.svoflee.spartacus.test;
 
-import java.util.Date;
-
 import org.apache.log4j.xml.DOMConfigurator;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -48,11 +46,9 @@ public abstract class BaseRootTest {
      */
     private static final String DEFAULT_LOG4J_CONFIG_PATH = "src/test/resources/log4j-test.xml";
 
-    private Date beginTime;
-
-    private Date endTime;
-
     protected final Logger log = Logger.getLogger(this.getClass());
+
+    private volatile long begin;
 
     protected void p(Object o) {
         System.out.println(o);
@@ -70,20 +66,17 @@ public abstract class BaseRootTest {
 
     @Before
     public void beforeTest() {
-        beginTime = new Date();
+        begin = System.nanoTime();
         log.debug("测试开始>>>>>>");
     }
 
     @After
     public void afterTest() {
-        endTime = new Date();
-        long begin = beginTime.getTime();
-        long end = endTime.getTime();
-
+        long end = System.nanoTime();
         log.debug("测试结束>>>>>>");
 
-        float dur = (end - begin) / 1000f;
-        log.info("执行耗时 [" + dur + "] 秒 ");
+        float dur = (end - begin) / (1000f * 1000f);
+        log.debug("执行耗时[ {} ]毫秒", dur);
 
     }
 
