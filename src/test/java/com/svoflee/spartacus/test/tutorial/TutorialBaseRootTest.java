@@ -50,6 +50,5 @@ public class TutorialBaseRootTest extends BaseRootTest {
     public void afterTest() {
         super.afterTest();
         // do your own in afterTest();
-
     }
 }
