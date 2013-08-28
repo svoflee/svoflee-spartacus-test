@@ -76,7 +76,7 @@ public abstract class BaseRootTest {
         log.debug("测试结束>>>>>>");
 
         float dur = (end - begin) / (1000f * 1000f);
-        log.debug("执行耗时[ {} ]毫秒", dur);
+        log.debug("执行耗时[ {} 毫秒] ,[ {} 秒]", dur, dur / 1000f);
 
     }
 
